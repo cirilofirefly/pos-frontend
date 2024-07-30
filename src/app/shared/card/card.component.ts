@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Product } from "../../core/interfaces/product";
+import { Status as ProductStatus } from "../../core/enum/product/status";
 
 @Component({
     selector: 'custom-card',
@@ -7,7 +9,9 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 })
 export class CardComponent {
     
-    @Input() title: string = '';
-    @Output() clicked = new EventEmitter<string>();
-    
+    @Input() product!: Product;
+    @Output() clicked = new EventEmitter<Product>();
+
+    productStatus = ProductStatus;
+  
 }

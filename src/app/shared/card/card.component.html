@@ -1,2 +1,20 @@
-<h1 (click)="clicked.emit(title)">{{ title }}</h1>
-<ng-content></ng-content>
+<div class="card-container shadow-sm rounded">
+    <img 
+        [src]="product.image" 
+        [alt]="product.title + '\'s image'"
+    >
+    <h5 class="mt-2">{{ product.title }}</h5>
+    <h4>{{ product.price | currency: 'PHP' }}</h4>
+    <p>{{ product.description }}</p>
+    <p 
+        class="pill border rounded-pill"
+        [ngClass]="
+            product.status === productStatus.IN_STOCK ? 
+                'text-primary border-primary' : 
+                'text-danger border-danger'
+        " 
+    >
+        {{ product.status | titlecase }}
+    </p>
+    <button class="btn btn-primary" (click)="clicked.emit(product)">See more</button>
+</div>

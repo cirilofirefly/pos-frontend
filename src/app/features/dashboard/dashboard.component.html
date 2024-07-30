@@ -1,4 +1,11 @@
-<input type="text" (keyup)="changeTitle($event)" [value]="cardTitle">
-<custom-card [title]="cardTitle" (clicked)="logTitle($event)">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et beatae recusandae in distinctio, architecto eius voluptatum ratione odio? Sit, necessitatibus?</p>
-</custom-card>
+<div class="container">
+    <div class="row justify-content-start">
+        <custom-card
+            class="col"
+            *ngFor="let product of products;"
+            [product]="product" 
+            (clicked)="logTitle($event)"
+        >
+        </custom-card>
+    </div>
+</div>
