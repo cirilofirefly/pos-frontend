@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './features/dashboard/dashboard.component';
-import { LoginComponent } from './features/login/login.component';
+import { LoginComponent } from './features/user/login/login.component';
+import { RegisterComponent } from './features/user/register/register.component';
+
 
 const routes: Routes = [
   {
@@ -10,10 +11,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: '',
-    title: 'Dashboard',
-    component: DashboardComponent
-  }
+    path: 'register',
+    title: 'Register',
+    component: RegisterComponent
+  },
 ];
 
 @NgModule({

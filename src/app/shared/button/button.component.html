@@ -1,0 +1,9 @@
+<button 
+    [disabled]="disabled"
+    [type]="type"
+    class="btn btn-primary" 
+>
+    <ng-content select="prepend"></ng-content>
+    <ng-content></ng-content>
+    <ng-content select="append"></ng-content>
+</button>

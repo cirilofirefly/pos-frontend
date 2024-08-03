@@ -1,0 +1,81 @@
+<div class="container d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
+    <form (ngSubmit)="register()" class="w-50">
+        <h1 class="text-center">Register Now!</h1>
+        <app-form-group class="my-2">
+            <label for="nameLbl">Name</label>
+            <app-input
+                id="nameLbl" 
+                placeholder="Enter name" 
+                [control]="registerForm.controls.name" 
+                aria-describedby="emailHelp"
+            >
+            </app-input>
+        </app-form-group>
+        <app-form-group class="mb-2">
+            <label for="emailLbl">Email address</label>
+            <app-input
+                id="emailLbl"
+                placeholder="Enter email"
+                type="email" 
+                [control]="registerForm.controls.email" 
+                aria-describedby="emailHelp"
+            >
+                <small 
+                    id="emailHelp" 
+                    class="form-text text-muted"
+                >
+                    We'll never share your email with anyone else.
+                </small>
+            </app-input>
+        </app-form-group>
+        <app-form-group class="mb-2">
+            <label for="passwordLbl">Password</label>
+            <app-input
+                id="passwordLbl"
+                type="password"
+                placeholder="Enter password" 
+                [control]="registerForm.controls.password" 
+            >
+            </app-input>
+            <p *ngIf="registerForm.errors?.['passwordMismatch']" class="text-danger">
+                Password does not match
+            </p>
+        </app-form-group>
+        <app-form-group class="mb-2">
+            <label for="confirmPasswordLbl">Confirm Password</label>
+            <app-input
+                id="confirmPasswordLbl"
+                type="password"
+                placeholder="Confirm password" 
+                [control]="registerForm.controls.confirm_password" 
+            >
+            </app-input>
+        </app-form-group>
+        <app-form-group class="mb-2">
+            <label for="birthDateLbl">Date of Birth</label>
+            <app-input
+                id="birthDateLbl"
+                type="date"
+                placeholder="mm/dd/yyyy"
+                [control]="registerForm.controls.birth_date" 
+            >
+            </app-input>
+        </app-form-group>
+        <app-form-group class="my-2 mb-4">
+            <label for="contactNumberLbl">Contact Number</label>
+            <app-input
+                id="contactNumberLbl" 
+                placeholder="0000-000-0000"
+                mask="0000-000-0000" 
+                [control]="registerForm.controls.contact_number" 
+            >
+            </app-input>
+        </app-form-group>
+        <app-button 
+            [disabled]="registerForm.invalid" 
+            type="submit"
+        >
+            Register
+        </app-button>
+    </form>
+</div>
